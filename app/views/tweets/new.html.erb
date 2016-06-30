@@ -1,0 +1,13 @@
+<div class="container">
+
+
+<div class="well">
+  <%= form_for @tweet do |f| %>
+  <%= f.label :body %>
+  <%= f.text_area :body %>
+  <%= f.label :picture %>
+  <%= f.text_field :picture %>
+  <%= f.submit %>
+<% end %>
+</div>
+</div>

@@ -8,6 +8,10 @@ post "registration" => "users#create", as: :create_user
 get "users/:id" => "users#show", as: :user
 get "users" => "users#index", as: :users
 
+post "tweets" => "tweets#create"
+get "tweets/new" => "tweets#new", as: :new_tweet
+
+
 get "sign_in" => "sessions#new", as: :sign_in
 post "sign_in" => "sessions#create"
 delete "sign_in" => "sessions#delete"

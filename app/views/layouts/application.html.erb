@@ -6,6 +6,20 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+<header>
+  <div class="page-header">
+  <h1> <%= link_to root_path do %> Twitter <% end %><small>tweeter</small></h1>
+  <% if @current_user %>
+  Hi
+  <%= @current_user.username %>
+  <%= link_to 'Tweet', new_tweet_path %>
+  <%= link_to 'Sign Out', sign_in_path, method: :delete %>
+<% else %>
+  <%= link_to 'Sign In', sign_in_path %>
+  <% end %>
+</div>
+
+</header>
 <body>
   <% if notice %>
   <%= notice %>

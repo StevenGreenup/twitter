@@ -2,5 +2,14 @@
   <div class="profile">
     <%= image_tag "#{@user.photo_url}" %>
     <%= @user.username %><br>
+
   </div>
+</div>
+
+<div class="tweets">
+  <% @user.tweets.each do |tweet| %>
+    <%= @user.username %><br>
+    <%= tweet.body %><br>
+    <%= tweet.picture %><br>
+    <% end %>
 </div>
