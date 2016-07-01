@@ -6,21 +6,55 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<header>
-  <div class="page-header">
-  <h1> <%= link_to root_path do %> Twitter <% end %><small>tweeter</small></h1>
-  <% if @current_user %>
-  Hi
-  <%= @current_user.username %>
-  <%= link_to 'Tweet', new_tweet_path %>
-  <%= link_to 'Sign Out', sign_in_path, method: :delete %>
-<% else %>
-  <%= link_to 'Sign In', sign_in_path %>
-  <% end %>
-</div>
+  <body>
+    <header>
 
-</header>
-<body>
+
+  <div class="page-header">
+<div class="col-sm-12">
+
+
+    <div class="col-sm-4">
+      <div class="text-left">
+
+      <%= link_to root_path, class:"btn btn-default" do %><i class="glyphicon glyphicon-home"></i>Home<% end %>
+      <%= link_to root_path, class:"btn btn-default" do %><i class="glyphicon glyphicon-home"></i>Moments<% end %>
+      <%= link_to root_path, class:"btn btn-default" do %><i class="glyphicon glyphicon-home"></i>Notifications<% end %>
+      <%= link_to root_path, class:"btn btn-default" do %><i class="glyphicon glyphicon-home"></i>Messages<% end %>
+
+      </div>
+    </div>
+
+
+      <div class="col-sm-4">
+        <div class="text-center">
+
+
+        <%= link_to root_path do %> <%= image_tag ("twitter-bird.gif") %> <% end %>
+  </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="text-right">
+
+
+        <% if @current_user %>
+        <%= link_to user_path(id: @current_user.id) do %>
+        <%= image_tag @current_user.photo_url, class: "img-rounded" %>
+        <% end %>
+        <%= link_to 'Tweet', new_tweet_path %>
+        <%= link_to 'Sign Out', sign_in_path, method: :delete %>
+        <% else %>
+        <%= link_to 'Sign In', sign_in_path %>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+  </header>
+
   <% if notice %>
   <%= notice %>
   <% end %>
