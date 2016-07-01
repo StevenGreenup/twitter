@@ -1,12 +1,19 @@
 class UsersController < ApplicationController
 
+  before_action except: [:new] do
+    if @current_user.nil?
+      redirect_to sign_in_path, notice: "Please Sign In"
+    end
+  end
+
   def index
-    @users = User.all
+    @users = User.where("id != ?", @current_user.id)
+
   end
 
   def show
     @user = User.find_by id: params[:id]
-    
+
   end
 
   def new
@@ -24,5 +31,21 @@ class UsersController < ApplicationController
     else
       render :new
     end
+  end
+
+  def following
+    @users = @current_user.following_users
+  end
+
+  def follow
+    user = User.find_by! id: params[:user_id]
+    @current_user.follow(user)
+    redirect_to users_path, notice: "Following"
+  end
+
+  def unfollow
+    user = User.find_by! id: params[:user_id]
+    @current_user.stop_following(user)
+    redirect_to users_path, notice: "Unfollowing"
   end
 end

@@ -3,10 +3,16 @@ Rails.application.routes.draw do
   root "home#index"
 
 
+
 get "registration" => "users#new",  as: :new_user
 post "registration" => "users#create", as: :create_user
 get "users/:id" => "users#show", as: :user
+
 get "users" => "users#index", as: :users
+get 'following' => 'users#following', as: :following
+post 'follow/:user_id' => 'users#follow', as: :follow
+post 'unfollow/:user_id' => 'users#unfollow', as: :unfollow
+
 
 post "tweets" => "tweets#create"
 get "tweets/new" => "tweets#new", as: :new_tweet
