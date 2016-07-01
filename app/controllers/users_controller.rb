@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action except: [:new] do
+  before_action except: [:create, :new] do
     if @current_user.nil?
       redirect_to sign_in_path, notice: "Please Sign In"
     end
@@ -27,6 +27,7 @@ class UsersController < ApplicationController
     @user.photo_url = params[:user][:photo_url]
     @user.password_confirmation = params[:user][:password_confirmation]
     if @user.save
+      session[:user_id] = @user.id
       redirect_to root_path, notice: "Welcome #{@user.username}"
     else
       render :new
