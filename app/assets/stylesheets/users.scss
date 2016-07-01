@@ -1,3 +1,7 @@
+body{
+  background-color: #f5f8fa;
+}
+
 .well{
 
 
@@ -23,12 +27,14 @@
 
 
 .page-header {
+  background-color: white;
   display:inline-block;
   margin: 0px;
   padding-top: 9px;
   width: 100%;
 
   .col-sm-4{
+    background-color: white;
     padding: 0px;
     a{
       border: 0px;
@@ -52,5 +58,49 @@
   img{
     width: 35px;
     height: auto;
+  }
+}
+
+.container{
+
+  .col-sm-3{
+    border: 1px solid gray;
+    padding: 15px;
+
+    padding-bottom: 5px;
+  .profile-content{
+    padding-top: 65px;
+
+    .picture-and-username{
+      img{
+        width: 75px;
+        height: 75px;
+      }
+    }
+  }
+}
+}
+.timeline{
+  background-color: white;
+  border: 1px solid black;
+  .body-and-username{
+    img{
+      width: 50px;
+      height: 50px;
+    }
+  }
+}
+
+.col-sm-3{
+  background-color: white;
+  border: 1px solid black;
+  .heading{
+    width: 100%;
+  }
+  .users-to-follow {
+    img{
+      width: 50px;
+      height: 50px;
+    }
   }
 }
