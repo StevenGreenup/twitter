@@ -6,7 +6,7 @@
   <div class="profile-content">
     <div class="picture-and-username">
 
-      <%= image_tag @current_user.photo_url %>
+      <%= image_tag @current_user.photo_url, class: "img-rounded"  %>
       <%= @current_user.username %>
       <%= @current_user.id %>
     </div>
@@ -32,25 +32,29 @@
 </div>
 
 <div class="col-sm-6">
-
-
-  <div class="timeline">
     <div class="tweet">
-      <ul class="body-and-username">
+      <div class="row">
         <% @current_user.timeline.each do |time| %>
+        <div class="photo_url">
         <%= link_to time.user(id: time.user.id) do %>
-        <%= image_tag time.user.photo_url %><br> <% end %>
-        <li>
+        <%= image_tag time.user.photo_url, class: "img-rounded"  %><% end %>
+        </div>
+        <div class="wrapper">
+        <div class="username">
         <%= link_to time.user(id: time.user.id) do %>
         <%= time.user.username %><br> <% end %>
-        </li>
-        <li>
+        </div>
+        <div class="body">
         <%= time.body %><br>
-        </li>
+        </div>
+        </div>
+          <hr>
         <% end %>
-      </ul>
       </div>
-    </div>
+
+
+      </div>
+
   </div>
 
 <div class="col-sm-3">
@@ -61,7 +65,7 @@
     <div class="users-to-follow">
       <% @users.each do |user| %>
 <br>
-      <%= link_to user_path(id: user.id) do %> <%= image_tag user.photo_url %> <% end %>
+      <%= link_to user_path(id: user.id) do %> <%= image_tag user.photo_url, class: "img-rounded"  %> <% end %>
       <%= link_to user.username, user_path(id: user.id) %>
       <% if @current_user.following?(user) %>
       <%= link_to 'Unfollow', unfollow_path(user_id: user.id), method: :post %>

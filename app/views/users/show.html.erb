@@ -23,10 +23,10 @@
     <div class="tweets">
       <% @user.tweets.each do |tweet| %>
         <%= @user.username%>
-        <%= image_tag @user.photo_url, size: "35x35"  %>
+        <%= image_tag @user.photo_url, size: "35x35", class: "img-rounded"   %>
         <%= tweet.body %>
         <div class="tweet-picture">
-        <%= image_tag tweet.picture %><br>
+        <%= image_tag tweet.picture, class: "img-rounded"  %><br>
         </div>
         <% end %>
     </div>
