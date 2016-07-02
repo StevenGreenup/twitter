@@ -14,7 +14,9 @@
 
       <div class="pictures-tweeted">
         <% @user.tweets.each do |picture| %>
+        <% if picture.picture.present? %>
         <%= image_tag picture.picture, class:"img-rounded" %>
+        <% end %>
         <% end %>
       </div>
   <br>
@@ -55,7 +57,9 @@
         </div>
         </div>
         <div class="tweet-picture">
+          <% if tweet.picture.present? %>
         <%= image_tag tweet.picture, class: "img-rounded"  %><br>
+        <% end %>
         </div>
 
       </div><br>

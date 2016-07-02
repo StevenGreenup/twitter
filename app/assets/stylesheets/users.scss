@@ -64,7 +64,7 @@ z-index: 100;
 
     .text-right{
       a{
-      
+
         background-color: #00aced;
 
     }
@@ -142,6 +142,14 @@ z-index: 100;
     }
     }
   }
+    .body-picture{
+      text-align: center;
+      img{
+        width: 300px;
+        height: auto;
+      }
+    }
+
   hr{
     margin-top: 0px;
     margin-bottom: 0px;

@@ -55,6 +55,12 @@
         </div>
         </div>
         </div>
+        <div class="body-picture">
+          <% if time.picture.present? %>
+          <%= image_tag time.picture %>
+          <% end %>
+        </div>
+
           <hr>
         <% end %>
       </div>
