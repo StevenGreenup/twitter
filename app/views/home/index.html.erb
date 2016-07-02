@@ -38,8 +38,9 @@
     <%= f.submit "Tweet", class:"form-control" %>
   <% end %>
   </div>
-    <div class="tweet">
-        <% @current_user.timeline.each do |time| %>
+    <div class="tweets">
+      <% @current_user.timeline.each do |time| %>
+      <div class="tweet">
         <div class="photo_url">
         <%= link_to time.user(id: time.user.id) do %>
         <%= image_tag time.user.photo_url, class: "img-rounded"  %><% end %>
@@ -51,6 +52,7 @@
         </div>
         <div class="body">
         <%= time.body %><br>
+        </div>
         </div>
         </div>
           <hr>

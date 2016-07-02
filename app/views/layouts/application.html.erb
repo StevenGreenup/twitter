@@ -18,9 +18,7 @@
       <div class="text-left">
 
       <%= link_to root_path, class:"btn btn-default" do %><i class="glyphicon glyphicon-home"></i>Home<% end %>
-      <%= link_to root_path, class:"btn btn-default" do %><i class="glyphicon glyphicon-home"></i>Moments<% end %>
-      <%= link_to root_path, class:"btn btn-default" do %><i class="glyphicon glyphicon-home"></i>Notifications<% end %>
-      <%= link_to root_path, class:"btn btn-default" do %><i class="glyphicon glyphicon-home"></i>Messages<% end %>
+
 
       </div>
     </div>
@@ -44,7 +42,7 @@
 
         <%= link_to 'Tweet', new_tweet_path %>
         <%= link_to 'Sign Out', sign_in_path, method: :delete %>
-        
+
         <% else %>
         <%= link_to 'Sign In', sign_in_path %>
         <%= link_to 'Sign up', new_user_path %>

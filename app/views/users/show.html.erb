@@ -40,20 +40,26 @@
 
   <div class="panel-body">
 
-    <div class="tweets">
-
-
+    <div class="user-tweets">
       <% @user.tweets.each do |tweet| %>
-        <%= @user.username%>
-        <%= image_tag @user.photo_url, size: "35x35", class: "img-rounded"   %>
-        <%= tweet.body %>
-        <div class="tweet-picture">
+      <div class="tweet-border">
 
-        <%= image_tag tweet.picture, class: "img-rounded"  %><br>
 
+      <div class="user-tweet">
+        <div class="picture">
+          <%= image_tag @user.photo_url, size: "35x35", class: "img-rounded"   %>
         </div>
-        <hr>
-        <% end %>
+        <div class="username-body">
+        <%= @user.username%><br>
+        <%= tweet.body %>
+        </div>
+        </div>
+        <div class="tweet-picture">
+        <%= image_tag tweet.picture, class: "img-rounded"  %><br>
+        </div>
+
+      </div><br>
+          <% end %>
     </div>
 
   </div>
