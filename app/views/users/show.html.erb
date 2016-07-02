@@ -41,7 +41,7 @@
   <div class="panel-body">
 
     <div class="user-tweets">
-      <% @user.tweets.each do |tweet| %>
+      <% @user.tweets.order("created_at DESC").each do |tweet| %>
       <div class="tweet-border">
 
 
