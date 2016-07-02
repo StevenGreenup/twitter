@@ -32,8 +32,13 @@
 </div>
 
 <div class="col-sm-6">
+  <div class="compose-tweet">
+    <%= form_for @tweet do |f| %>
+    <%= f.text_field :body, class:"form-control", placeholder:"What's happening?" %>
+    <%= f.submit "Tweet", class:"form-control" %>
+  <% end %>
+  </div>
     <div class="tweet">
-      <div class="row">
         <% @current_user.timeline.each do |time| %>
         <div class="photo_url">
         <%= link_to time.user(id: time.user.id) do %>
@@ -42,7 +47,7 @@
         <div class="wrapper">
         <div class="username">
         <%= link_to time.user(id: time.user.id) do %>
-        <%= time.user.username %><br> <% end %>
+        <%= time.user.username %> <% end %>
         </div>
         <div class="body">
         <%= time.body %><br>
@@ -51,10 +56,6 @@
           <hr>
         <% end %>
       </div>
-
-
-      </div>
-
   </div>
 
 <div class="col-sm-3">

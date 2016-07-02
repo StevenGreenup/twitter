@@ -10,5 +10,6 @@ class HomeController < ApplicationController
   def index
     @current_user = User.find_by id: session[:user_id]
     @users = User.where("id != ?", @current_user.id)
+    @tweet = Tweet.new
   end
 end
