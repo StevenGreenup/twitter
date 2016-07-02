@@ -1,3 +1,9 @@
+<div class="container">
+
+
+<div class="col-sm-3">
+
+
 <% @users.each do |user| %>
 <br>
 <%= link_to user.username, user_path(id: user.id) %>
@@ -8,3 +14,6 @@
 
 <% end %>
 <% end %>
+
+</div>
+</div>
