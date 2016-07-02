@@ -61,6 +61,14 @@ z-index: 100;
   .col-sm-4{
     background-color: white;
     padding: 0px;
+
+    .text-right{
+      a{
+      
+        background-color: #00aced;
+
+    }
+    }
     a{
       border: 0px;
       &:hover{
