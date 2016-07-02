@@ -3,7 +3,7 @@ body{
 }
 
 .well{
-
+margin-top: 60px;
 
   .profile{
 
@@ -27,6 +27,10 @@ body{
 
 
 .page-header {
+
+  position: fixed;
+  top: 0px;
+z-index: 100;
   background-color: white;
   display:inline-block;
   margin: 0px;
@@ -52,6 +56,7 @@ body{
 
 .container{
   padding: 0px;
+  margin-top: 60px;
 }
 
 .list-group{
@@ -64,7 +69,7 @@ body{
 .container{
 
   .col-sm-3{
-    border: 1px solid gray;
+    border: 1px solid #e1e8ed;
     padding: 15px;
 
     padding-bottom: 5px;
@@ -80,20 +85,28 @@ body{
   }
 }
 }
-.timeline{
+.col-sm-6{
+    background-color: #f5f8fa;
+.tweet{
+
   background-color: white;
-  border: 1px solid black;
-  .body-and-username{
+  border: 1px solid #e1e8ed;
+    border-radius: 5px;
+    padding-top: 10px;
+    margin: 5px;
+  .photo_url{
+
     img{
       width: 50px;
       height: 50px;
     }
   }
 }
-
+}
 .col-sm-3{
   background-color: white;
-  border: 1px solid black;
+  border: 1px solid #e1e8ed;
+  border-radius: 5px;
   .heading{
     width: 100%;
   }
@@ -103,4 +116,8 @@ body{
       height: 50px;
     }
   }
+}
+
+.compose-tweet{
+  padding: 5px;
 }
