@@ -1,67 +1,53 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Twitter</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-  <body>
-    <header>
+    <head>
+        <title>Twitter</title>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+        <%= csrf_meta_tags %>
+    </head>
+    <body>
+        <header>
 
+            <div class="page-header">
+                <div class="col-sm-12">
 
-  <div class="page-header">
-<div class="col-sm-12">
+                    <div class="col-sm-4">
+                        <div class="text-left">
+                            <%= link_to root_path, class:"btn btn-default" do %>
+                            <i class="glyphicon glyphicon-home"></i>Home<% end %>
+                        </div>
+                    </div>
 
+                    <div class="col-sm-4">
+                        <div class="text-center">
+                            <%= link_to root_path do %>
+                            <%= image_tag ("twitter-bird.gif") %>
+                            <% end %>
+                        </div>
+                    </div>
 
-    <div class="col-sm-4">
-      <div class="text-left">
+                    <div class="col-sm-4">
+                        <div class="text-right">
+                            <% if @current_user %>
+                            <%= link_to user_path(id: @current_user.id) do %>
+                            <%= image_tag @current_user.photo_url, class: "img-rounded" %><% end %>
 
-      <%= link_to root_path, class:"btn btn-default" do %><i class="glyphicon glyphicon-home"></i>Home<% end %>
+                            <%= link_to 'Tweet', new_tweet_path, class:"btn btn-primary btn-sm" %>
+                            <%= link_to 'Sign Out', sign_in_path, method: :delete, class:"btn btn-primary btn-sm" %>
 
+                        <% else %>
+                            <%= link_to 'Sign In', sign_in_path, class:"btn btn-primary btn-sm" %>
+                            <%= link_to 'Sign up', new_user_path, class:"btn btn-primary btn-sm" %>
 
-      </div>
-    </div>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
 
+        <%= yield %>
 
-      <div class="col-sm-4">
-        <div class="text-center">
-
-
-        <%= link_to root_path do %> <%= image_tag ("twitter-bird.gif") %> <% end %>
-  </div>
-      </div>
-
-      <div class="col-sm-4">
-        <div class="text-right">
-
-
-        <% if @current_user %>
-          <%= link_to user_path(id: @current_user.id) do %>
-          <%= image_tag @current_user.photo_url, class: "img-rounded" %><% end %>
-
-        <%= link_to 'Tweet', new_tweet_path, class:"btn btn-primary btn-sm" %>
-        <%= link_to 'Sign Out', sign_in_path, method: :delete, class:"btn btn-primary btn-sm" %>
-
-        <% else %>
-        <%= link_to 'Sign In', sign_in_path, class:"btn btn-primary btn-sm" %>
-        <%= link_to 'Sign up', new_user_path, class:"btn btn-primary btn-sm" %>
-
-
-        <% end %>
-      </div>
-    </div>
-
-  </div>
-
-</div>
-  </header>
-
-  <% if notice %>
-  <%= notice %>
-  <% end %>
-
-<%= yield %>
-
-</body>
+    </body>
 </html>

@@ -1,100 +1,98 @@
-
 <div class="container">
 
+    <div class="col-sm-3">
+        <div class="profile-content">
+            <div class="picture-and-username">
 
-<div class="col-sm-3">
-  <div class="profile-content">
-    <div class="picture-and-username">
-
-      <%= image_tag @current_user.photo_url, class: "img-rounded"  %>
-      <%= @current_user.username %>
-      <%= @current_user.id %>
-    </div>
-    <div class="follower-stats">
-      <div class="col-sm-4">
-        Tweets  <br>
-        <%= @current_user.tweets.count %>
-      </div>
-      <div class="col-sm-4">
-        Following <br>
-        <%= @current_user.all_following.count %>
-      </div>
-      <div class="col-sm-4">
-        Followers <br>
-
-        <%= @current_user.followings.count %>
-      </div>
-
-
-    </div>
-  </div>
-
-</div>
-
-<div class="col-sm-6">
-  <div class="compose-tweet">
-    <%= form_for @tweet do |f| %>
-    <%= f.text_field :body, class:"form-control", placeholder:"What's happening?" %>
-    <%= f.submit "Tweet", class:"form-control" %>
-  <% end %>
-  </div>
-    <div class="tweets">
-      <% @current_user.timeline.each do |time| %>
-      <div class="tweet">
-
-        <div class="wrapper">
-
-        <div class="photo_url">
-        <%= link_to time.user(id: time.user.id) do %>
-        <%= image_tag time.user.photo_url, class: "img-rounded"  %><% end %>
+                <%= image_tag @current_user.photo_url, class: "img-rounded"  %>
+                <%= @current_user.username %>
+                <%= @current_user.id %>
+            </div>
+            <div class="follower-stats">
+                <div class="col-sm-4">
+                    Tweets
+                    <br>
+                    <%= @current_user.tweets.count %>
+                </div>
+                <div class="col-sm-4">
+                    Following
+                    <br>
+                    <%= @current_user.all_following.count %>
+                </div>
+                <div class="col-sm-4">
+                    Followers
+                    <br>
+                    <%= @current_user.followings.count %>
+                </div>
+            </div>
         </div>
-
-
-        <div class="body">
-          <%= link_to time.user(id: time.user.id) do %>
-          <%= time.user.username %> <% end %><br>
-        <%= time.body %><br>
-        </div>
-        </div>
-        <div class="body-picture">
-          <% if time.picture.present? %>
-          <%= image_tag time.picture %>
-          <% end %>
-        </div>
-        </div>
-          <hr>
-        <% end %>
-      </div>
-  </div>
-
-  <div class="col-sm-3">
-    <div class="heading">
-      Who to follow <%= link_to 'View all', users_path %>
-    </div>
-    <div class="users-to-follow">
-      <% @users.sample(3).each do |user| %>
-      <div class="user">
-
-
-<br>  <div class="username-photo">
-      <%= link_to user_path(id: user.id) do %> <%= image_tag user.photo_url, class: "img-rounded"  %> <% end %>
-      <%= link_to user.username, user_path(id: user.id) %>
-      </div>
-      <div class="follow-unfollow">
-      <% if @current_user.following?(user) %>
-      <%= link_to unfollow_path(user_id: user.id), method: :post, class:"btn btn-primary btn-sm" do %><i class="glyphicon glyphicon-minus"></i> Unfollow<% end %>
-      <% else %>
-      <%= link_to follow_path(user_id: user.id), method: :post, class:"btn btn-primary btn-sm" do %><i class="glyphicon glyphicon-plus"></i> Follow<% end %>
-<br>
-      <% end %>
-      </div></div>
-      <% end %>
-
 
     </div>
 
+    <div class="col-sm-6">
+        <div class="compose-tweet">
+            <%= form_for @tweet do |f| %>
+            <%= f.text_field :body, class:"form-control", placeholder:"What's happening?" %>
+            <%= f.submit "Tweet", class:"form-control" %>
+            <% end %>
+        </div>
+        <div class="tweets">
+            <% @current_user.timeline.each do |time| %>
+            <div class="tweet">
+                <div class="wrapper">
+                    <div class="photo_url">
+                        <%= link_to time.user(id: time.user.id) do %>
+                        <%= image_tag time.user.photo_url, class: "img-rounded"  %><% end %>
+                    </div>
 
-  </div>
+                    <div class="body">
+                        <%= link_to time.user(id: time.user.id) do %>
+                        <%= time.user.username %>
+                        <% end %><br>
+                        <%= time.body %><br>
+                    </div>
+                </div>
+                <div class="body-picture">
+                    <% if time.picture.present? %>
+                    <%= image_tag time.picture %>
+                    <% end %>
+                </div>
+            </div>
+            <hr>
+            <% end %>
+        </div>
+    </div>
 
+    <div class="col-sm-3">
+        <div class="heading">
+            Who to follow
+            <%= link_to 'View all', users_path %>
+        </div>
+        <div class="users-to-follow">
+            <% @users.sample(3).each do |user| %>
+            <div class="user">
+                <br>
+                <div class="username-photo">
+                    <%= link_to user_path(id: user.id) do %>
+                    <%= image_tag user.photo_url, class: "img-rounded"  %>
+                    <% end %>
+                    <%= link_to user.username, user_path(id: user.id) %>
+                </div>
+                <div class="follow-unfollow">
+                    <% if @current_user.following?(user) %>
+                    <%= link_to unfollow_path(user_id: user.id), method: :post, class:"btn btn-primary btn-sm" do %>
+                    <i class="glyphicon glyphicon-minus"></i>
+                    Unfollow<% end %>
+                <% else %>
+                    <%= link_to follow_path(user_id: user.id), method: :post, class:"btn btn-primary btn-sm" do %>
+                    <i class="glyphicon glyphicon-plus"></i>
+                    Follow<% end %>
+                    <br>
+                    <% end %>
+                </div>
+            </div>
+            <% end %>
+        </div>
+    </div>
 
 </div>

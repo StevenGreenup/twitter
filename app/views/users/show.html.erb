@@ -1,130 +1,138 @@
 <div class="well">
-  <div class="profile">
-    <%= image_tag @user.photo_url, class:"img-rounded" %>
+    <div class="profile">
+        <%= image_tag @user.photo_url, class:"img-rounded" %>
 
-    <div class="bottom-follow">
+        <div class="bottom-follow">
 
-        <% if @current_user.id == @user.id  %>
-        <%= link_to 'People I Am Following', following_path, class:"btn btn-primary btn-sm" %>
-        <% end %>
-      <div class="wrapper">
-      <div class="col-sm-4">
-        Tweets  <br>
-        <%= @user.tweets.count %>
-      </div>
-      <div class="col-sm-4">
-        Following <br>
-        <%= @user.all_following.count %>
-      </div>
-      <div class="col-sm-4">
-        Followers <br>
+            <% if @current_user.id == @user.id  %>
+            <%= link_to 'People I Am Following', following_path, class:"btn btn-primary btn-sm" %>
+            <% end %>
+            <div class="wrapper">
+                <div class="col-sm-4">
+                    Tweets
+                    <br>
+                    <%= @user.tweets.count %>
+                </div>
+                <div class="col-sm-4">
+                    Following
+                    <br>
+                    <%= @user.all_following.count %>
+                </div>
+                <div class="col-sm-4">
+                    Followers
+                    <br>
 
-        <%= @user.followings.count %>
-      </div>
+                    <%= @user.followings.count %>
+                </div>
 
+            </div>
+        </div>
     </div>
-    </div>
-  </div>
 </div>
 
 <div class="container">
-  <div class="profile-stuff">
+    <div class="profile-stuff">
+        <div class="col-sm-3">
+            <h2><%= @user.username %></h2>
+            <%= @user.created_at %>
+
+            <div class="pictures-tweeted">
+                <h5>Photos</h5>
+                <% @user.tweets.each do |picture| %>
+                <% if picture.picture.present? %>
+                <%= image_tag picture.picture, class:"img-rounded" %>
+                <% end %>
+                <% end %>
+            </div>
+            <br>
+        </div>
+    </div>
+
+    <div class="col-sm-6">
+        <div class="compose-tweet">
+            <% if @current_user.id == @user.id  %>
+            <%= form_for @tweet do |f| %>
+            <%= f.text_field :body, class:"form-control", placeholder:"What's happening?" %>
+            <%= f.submit "Tweet", class:"form-control" %>
+
+            <% end %>
+            <% end %>
+            <br>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <% if @current_user.id == @user.id %>
+                <h3 class="panel-title">My Tweets</h3>
+            <% else %>
+                <h3 class="panel-title">
+                    <%= @user.username %>'s Tweets</h3>
+                <% end %>
+            </div>
+
+            <div class="panel-body">
+
+                <div class="user-tweets">
+                    <% @user.tweets.order("created_at DESC").each do |tweet| %>
+                    <div class="tweet-border">
+
+                        <div class="user-tweet">
+                            <div class="picture">
+                                <%= image_tag @user.photo_url, size: "35x35", class: "img-rounded"   %>
+                            </div>
+                            <div class="username-body">
+                                <%= @user.username%><br>
+                                <%= tweet.body %>
+                            </div>
+                        </div>
+                        <div class="tweet-picture">
+                            <% if tweet.picture.present? %>
+                            <%= image_tag tweet.picture, class: "img-rounded"  %><br>
+                            <% end %>
+                        </div>
+
+                    </div><br>
+                    <% end %>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
     <div class="col-sm-3">
-      <h2><%= @user.username %></h2>
-      <%= @user.created_at %>
-
-      <div class="pictures-tweeted">
-        <h5>Photos</h5>
-        <% @user.tweets.each do |picture| %>
-        <% if picture.picture.present? %>
-        <%= image_tag picture.picture, class:"img-rounded" %>
-        <% end %>
-        <% end %>
-      </div>
-  <br>
-  </div>
-  </div>
-
-<div class="col-sm-6">
-  <div class="compose-tweet">
-    <% if @current_user.id == @user.id  %>
-    <%= form_for @tweet do |f| %>
-    <%= f.text_field :body, class:"form-control", placeholder:"What's happening?" %>
-    <%= f.submit "Tweet", class:"form-control" %>
-
-  <% end %>
-  <% end %>
-  <br>
-  </div>
-
-  <div class="panel panel-default">
-  <div class="panel-heading">
-    <% if @current_user.id == @user.id %>
-    <h3 class="panel-title">My Tweets</h3>
-    <% else %>
-    <h3 class="panel-title"> <%= @user.username %>'s Tweets</h3>
-    <% end %>
-  </div>
-
-  <div class="panel-body">
-
-    <div class="user-tweets">
-      <% @user.tweets.order("created_at DESC").each do |tweet| %>
-      <div class="tweet-border">
-
-
-      <div class="user-tweet">
-        <div class="picture">
-          <%= image_tag @user.photo_url, size: "35x35", class: "img-rounded"   %>
+        <div class="heading">
+            Who to follow
+            <%= link_to 'View all', users_path %>
         </div>
-        <div class="username-body">
-        <%= @user.username%><br>
-        <%= tweet.body %>
+        <div class="users-to-follow">
+            <% @users.sample(3).each do |user| %>
+            <div class="user">
+
+                <br>
+                <div class="username-photo">
+                    <%= link_to user_path(id: user.id) do %>
+                    <%= image_tag user.photo_url, class: "img-rounded"  %>
+                    <% end %>
+                    <%= link_to user.username, user_path(id: user.id) %>
+                </div>
+                <div class="follow-unfollow">
+                    <% if @current_user.following?(user) %>
+                    <%= link_to unfollow_path(user_id: user.id), method: :post, class:"btn btn-primary btn-sm" do %>
+                    <i class="glyphicon glyphicon-minus"></i>
+                    Unfollow<% end %>
+                <% else %>
+                    <%= link_to follow_path(user_id: user.id), method: :post, class:"btn btn-primary btn-sm" do %>
+                    <i class="glyphicon glyphicon-plus"></i>
+                    Follow<% end %>
+                    <br>
+                    <% end %>
+                </div>
+            </div>
+            <% end %>
+
         </div>
-        </div>
-        <div class="tweet-picture">
-          <% if tweet.picture.present? %>
-        <%= image_tag tweet.picture, class: "img-rounded"  %><br>
-        <% end %>
-        </div>
-
-      </div><br>
-          <% end %>
-    </div>
-
-  </div>
-</div>
-
-
-</div>
-
-  <div class="col-sm-3">
-    <div class="heading">
-      Who to follow <%= link_to 'View all', users_path %>
-    </div>
-    <div class="users-to-follow">
-      <% @users.sample(3).each do |user| %>
-      <div class="user">
-
-
-<br>  <div class="username-photo">
-      <%= link_to user_path(id: user.id) do %> <%= image_tag user.photo_url, class: "img-rounded"  %> <% end %>
-      <%= link_to user.username, user_path(id: user.id) %>
-      </div>
-      <div class="follow-unfollow">
-      <% if @current_user.following?(user) %>
-      <%= link_to unfollow_path(user_id: user.id), method: :post, class:"btn btn-primary btn-sm" do %><i class="glyphicon glyphicon-minus"></i> Unfollow<% end %>
-      <% else %>
-      <%= link_to follow_path(user_id: user.id), method: :post, class:"btn btn-primary btn-sm" do %><i class="glyphicon glyphicon-plus"></i> Follow<% end %>
-<br>
-      <% end %>
-      </div></div>
-      <% end %>
-
 
     </div>
-
-
-  </div>
 
 </div>
