@@ -19,6 +19,9 @@ get "tweets/new" => "tweets#new", as: :new_tweet
 post "favorite/:id/user/:user_id" => "tweets#favorite", as: :favorite
 post "unfavorite/:id/user/:user_id" => "tweets#unfavorite", as: :unfavorite
 
+post "comments" => "comments#create"
+get "tweet/:tweet_id/user/:user_id/comments/new" => "comments#new", as: :new_comment
+
 
 get "sign_in" => "sessions#new", as: :sign_in
 post "sign_in" => "sessions#create"

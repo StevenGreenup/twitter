@@ -156,13 +156,23 @@ body {
             width: auto;
             height: auto;
             border-top: 1px solid #e1e8ed;
-            padding-left: 20px;
+
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             flex-wrap: nowrap;
             justify-content: flex-start;
             align-content: center;
             align-items: flex-start;
+            .wrap{
+              padding-left: 20px;
+              border-bottom: 1px solid #e1e8ed;
+              width: 100%;
+              display: flex;
+              flex-direction: row;
+              flex-wrap: nowrap;
+              justify-content: flex-start;
+              align-content: center;
+              align-items: flex-start;
             .comment {
                 a {
                     color: #aab8c2;
@@ -174,7 +184,7 @@ body {
             }
             .heart {
               span{
-              color: #aab8c2;  
+              color: #aab8c2;
               }
                 padding-left: 10px;
                 a {
@@ -184,7 +194,27 @@ body {
                     }
                 }
             }
+          }
+            .comments{
+              width: 100%;
+              padding: 5px;
+              img{
+                width: 35px;
+                height: 35px;
+              }
+              .tweet-comments{
+                padding: 0px;
+                background-color: #e1e8ed;
+                overflow-y: auto;
+                height: 125px;
+                width: 100%;
+                ul{
+                  padding: 0px;
+                }
+              }
+            }
         }
+
         hr {
             margin-top: 0;
             margin-bottom: 0;
