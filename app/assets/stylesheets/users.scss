@@ -171,10 +171,26 @@ z-index: 100;
     width: 100%;
   }
   .users-to-follow {
-    img{
-      width: 50px;
-      height: 50px;
+
+    .user{
+      display:flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      align-content: center;
+      align-items: center;
+
+      .username-photo{
+        width: 120px;
+        img{
+          width: 50px;
+          height: 50px;
+        }
+      }.follow-unfollow{
+
+      }
     }
+
   }
 }
 

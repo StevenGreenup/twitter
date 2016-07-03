@@ -40,12 +40,12 @@
           <%= link_to user_path(id: @current_user.id) do %>
           <%= image_tag @current_user.photo_url, class: "img-rounded" %><% end %>
 
-        <%= link_to 'Tweet', new_tweet_path, class:"btn btn-primary" %>
-        <%= link_to 'Sign Out', sign_in_path, method: :delete, class:"btn btn-primary" %>
+        <%= link_to 'Tweet', new_tweet_path, class:"btn btn-primary btn-sm" %>
+        <%= link_to 'Sign Out', sign_in_path, method: :delete, class:"btn btn-primary btn-sm" %>
 
         <% else %>
-        <%= link_to 'Sign In', sign_in_path, class:"btn btn-primary" %>
-        <%= link_to 'Sign up', new_user_path, class:"btn btn-primary" %>
+        <%= link_to 'Sign In', sign_in_path, class:"btn btn-primary btn-sm" %>
+        <%= link_to 'Sign up', new_user_path, class:"btn btn-primary btn-sm" %>
 
 
         <% end %>

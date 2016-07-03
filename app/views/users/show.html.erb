@@ -2,7 +2,7 @@
   <div class="profile">
     <%= image_tag "#{@user.photo_url}" %>
 <% if @current_user.id == @user.id  %>
-<%= link_to 'People I Am Following', following_path %>
+<%= link_to 'People I Am Following', following_path, class:"btn btn-primary btn-sm" %>
 <% end %>
   </div>
 </div>
@@ -11,8 +11,10 @@
   <div class="profile-stuff">
     <div class="col-sm-3">
       <h2><%= @user.username %></h2>
+      <%= @user.created_at %>
 
       <div class="pictures-tweeted">
+        <h5>Photos</h5>
         <% @user.tweets.each do |picture| %>
         <% if picture.picture.present? %>
         <%= image_tag picture.picture, class:"img-rounded" %>
@@ -77,16 +79,22 @@
       Who to follow <%= link_to 'View all', users_path %>
     </div>
     <div class="users-to-follow">
-      <% @users.each do |user| %>
-<br>
+      <% @users.sample(3).each do |user| %>
+      <div class="user">
+
+
+<br>  <div class="username-photo">
       <%= link_to user_path(id: user.id) do %> <%= image_tag user.photo_url, class: "img-rounded"  %> <% end %>
       <%= link_to user.username, user_path(id: user.id) %>
+      </div>
+      <div class="follow-unfollow">
       <% if @current_user.following?(user) %>
-      <%= link_to 'Unfollow', unfollow_path(user_id: user.id), method: :post %>
+      <%= link_to unfollow_path(user_id: user.id), method: :post, class:"btn btn-primary btn-sm" do %><i class="glyphicon glyphicon-minus"></i> Unfollow<% end %>
       <% else %>
-      <%= link_to 'Follow', follow_path(user_id: user.id), method: :post %>
+      <%= link_to follow_path(user_id: user.id), method: :post, class:"btn btn-primary btn-sm" do %><i class="glyphicon glyphicon-plus"></i> Follow<% end %>
 <br>
       <% end %>
+      </div></div>
       <% end %>
 
 
