@@ -58,34 +58,33 @@
                     <% end %>
                 </div>
                 <div class="communication">
-                  <div class="wrap">
+                    <div class="wrap">
 
-
-                    <div class="comment">
-                        <%= link_to 'Comment', new_comment_path(tweet_id: time.id, user_id: @current_user.id)%>
-                    </div>
-                    <div class="heart">
-                        <%= link_to favorite_path(id: time.id, user_id: @current_user.id), method: :post do %>
-                        <i class="glyphicon glyphicon-heart"></i><% end %>
-                        <span><%= time.scorefavorite %></span>
-                        <%= link_to unfavorite_path(id: time.id, user_id: @current_user.id), method: :post do %>
-                        <i class="glyphicon glyphicon-thumbs-down"></i><% end %>
+                        <div class="comment">
+                            <%= link_to 'Comment', new_comment_path(tweet_id: time.id, user_id: @current_user.id)%>
+                        </div>
+                        <div class="heart">
+                            <%= link_to favorite_path(id: time.id, user_id: @current_user.id), method: :post do %>
+                            <i class="glyphicon glyphicon-heart"></i><% end %>
+                            <span><%= time.scorefavorite %></span>
+                            <%= link_to unfavorite_path(id: time.id, user_id: @current_user.id), method: :post do %>
+                            <i class="glyphicon glyphicon-thumbs-down"></i><% end %>
                         </div>
                         <hr>
                     </div>
 
                     <div class="comments">
-                      <% if time.comments.present? %>
+                        <% if time.comments.present? %>
                         <div class="tweet-comments">
-                                <% time.comments.each do |comment|  %>
-                                <ul>
-                                    <%= image_tag comment.user.photo_url, class: "img-rounded"  %>
-                                    <%= comment.user.username %>:
-                                    <%= comment.body %>
-                                </ul>
-                                  <% end %>
-                                </div>
-                                <% end %>
+                            <% time.comments.each do |comment|  %>
+                            <ul>
+                                <%= image_tag comment.user.photo_url, class: "img-rounded"  %>
+                                <%= comment.user.username %>:
+                                <%= comment.body %>
+                            </ul>
+                            <% end %>
+                        </div>
+                        <% end %>
 
                     </div>
                 </div>

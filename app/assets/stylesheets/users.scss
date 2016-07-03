@@ -123,6 +123,7 @@ body {
             border-radius: 5px;
             margin: 5px;
             .wrapper {
+                background-color: #ecf0f1;
                 padding-right: 10px;
                 padding-left: 10px;
                 padding-bottom: 20px;
@@ -157,65 +158,63 @@ body {
             width: auto;
             height: auto;
             border-top: 1px solid #e1e8ed;
-
             display: flex;
             flex-direction: column;
             flex-wrap: nowrap;
             justify-content: flex-start;
             align-content: center;
             align-items: flex-start;
-            .wrap{
-              padding-left: 20px;
-              width: 100%;
-              display: flex;
-              flex-direction: row;
-              flex-wrap: nowrap;
-              justify-content: flex-start;
-              align-content: center;
-              align-items: flex-start;
-            .comment {
-                a {
-                    color: #aab8c2;
-                    &:hover {
-                        color: green;
-                        text-decoration: none;
-                    }
-                }
-            }
-            .heart {
-              span{
-              color: #aab8c2;
-              }
-                padding-left: 10px;
-                a {
-                    color: #aab8c2;
-                    &:hover {
-                        color: red;
-                    }
-                }
-            }
-          }
-            .comments{
-              width: 100%;
-              padding: 5px;
-              img{
-                width: 35px;
-                height: 35px;
-              }
-              .tweet-comments{
-                border: 1px solid #e1e8ed;
-                padding: 0px;
-                background-color: white;
-                overflow-y: auto;
-                height: 125px;
+            .wrap {
+                padding-left: 20px;
                 width: 100%;
-                ul{
-                  padding: 0px;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                justify-content: flex-start;
+                align-content: center;
+                align-items: flex-start;
+                .comment {
+                    a {
+                        color: #aab8c2;
+                        &:hover {
+                            color: green;
+                            text-decoration: none;
+                        }
+                    }
                 }
-              }
+                .heart {
+                    span {
+                        color: #aab8c2;
+                    }
+                    padding-left: 10px;
+                    a {
+                        color: #aab8c2;
+                        &:hover {
+                            color: red;
+                        }
+                    }
+                }
+            }
+            .comments {
+                width: 100%;
+                padding: 5px;
+                img {
+                    width: 35px;
+                    height: 35px;
+                }
+                .tweet-comments {
+                    border: 1px solid #e1e8ed;
+                    padding: 0;
+                    background-color: #ecf0f1;
+                    overflow-y: auto;
+                    height: 125px;
+                    width: 100%;
+                    ul {
+                        padding: 0;
+                    }
+                }
             }
         }
-
         hr {
             margin-top: 0;
             margin-bottom: 0;
