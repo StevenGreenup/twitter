@@ -1,9 +1,24 @@
 <div class="well">
   <div class="profile">
-    <%= image_tag "#{@user.photo_url}" %>
-<% if @current_user.id == @user.id  %>
-<%= link_to 'People I Am Following', following_path, class:"btn btn-primary btn-sm" %>
-<% end %>
+    <%= image_tag @user.photo_url, class:"img-rounded" %>
+
+    <div class="bottom-follow">
+      <div class="col-sm-4">
+        Tweets  <br>
+        <%= @user.tweets.count %>
+      </div>
+      <div class="col-sm-4">
+        Following <br>
+        <%= @user.all_following.count %>
+      </div>
+      <div class="col-sm-4">
+        Followers <br>
+
+        <%= @user.followings.count %>
+      </div>
+
+    </div>
+
   </div>
 </div>
 
@@ -12,7 +27,9 @@
     <div class="col-sm-3">
       <h2><%= @user.username %></h2>
       <%= @user.created_at %>
-
+      <% if @current_user.id == @user.id  %>
+      <%= link_to 'People I Am Following', following_path, class:"btn btn-primary btn-sm" %>
+      <% end %>
       <div class="pictures-tweeted">
         <h5>Photos</h5>
         <% @user.tweets.each do |picture| %>
