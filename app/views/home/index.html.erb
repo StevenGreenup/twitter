@@ -41,18 +41,19 @@
     <div class="tweets">
       <% @current_user.timeline.each do |time| %>
       <div class="tweet">
+
+        <div class="wrapper">
+
         <div class="photo_url">
         <%= link_to time.user(id: time.user.id) do %>
         <%= image_tag time.user.photo_url, class: "img-rounded"  %><% end %>
         </div>
-        <div class="wrapper">
-        <div class="username">
-        <%= link_to time.user(id: time.user.id) do %>
-        <%= time.user.username %> <% end %>
-        </div>
+
+
         <div class="body">
+          <%= link_to time.user(id: time.user.id) do %>
+          <%= time.user.username %> <% end %><br>
         <%= time.body %><br>
-        </div>
         </div>
         </div>
         <div class="body-picture">
@@ -60,7 +61,7 @@
           <%= image_tag time.picture %>
           <% end %>
         </div>
-
+        </div>
           <hr>
         <% end %>
       </div>
