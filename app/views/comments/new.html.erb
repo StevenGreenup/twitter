@@ -1,7 +1,23 @@
 <div class="container">
     <div class="col-sm-8">
+      <div class="comment-tweet">
+
+        <div class="tweet-wrap">
+
+
+      <%= image_tag @tweet.user.photo_url, class: "img-rounded" %>
+      <%= @tweet.user.username %>
+      <%= @tweet.body %>
+      </div>
+      <div class="tweet-picture">
+          <% if @tweet.picture.present? %>
+          <%= image_tag @tweet.picture, class: "img-rounded"  %><br>
+          <% end %>
+      </div>
+      </div>
+
+
         <%= form_for @comment do |f| %>
-        <%= f.label :body %>
         <%= f.text_area :body, class:"form-control" %>
         <%= f.text_field :tweet_id, value: @tweet.id, readonly: true %>
         <%= f.submit %>

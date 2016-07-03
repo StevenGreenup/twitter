@@ -328,3 +328,27 @@ body {
         }
     }
 }
+
+
+.container{
+  .col-sm-8{
+    .comment-tweet{
+      border: 1px solid #e1e8ed;
+      
+      .tweet-picture{
+        img{
+          width: 300px;
+          height: auto;
+          text-align: center;
+        }
+        }
+      .tweet-wrap{
+        img{
+          width: 80px;
+          height: auto;
+
+        }
+      }
+    }
+  }
+}

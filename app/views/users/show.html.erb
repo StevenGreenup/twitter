@@ -1,12 +1,11 @@
 <div class="well">
     <div class="profile">
         <%= image_tag @user.photo_url, class:"img-rounded" %>
-
+        <% if @current_user.id == @user.id  %>
+        <%= link_to 'People I Am Following', following_path, class:"btn btn-primary btn-sm" %>
+        <% end %>
         <div class="bottom-follow">
 
-            <% if @current_user.id == @user.id  %>
-            <%= link_to 'People I Am Following', following_path, class:"btn btn-primary btn-sm" %>
-            <% end %>
             <div class="wrapper">
                 <div class="col-sm-4">
                     Tweets
@@ -106,7 +105,7 @@
                                     <%= link_to unfavorite_path(id: tweet.id, user_id: @current_user.id), method: :post do %>
                                     <i class="glyphicon glyphicon-thumbs-down"></i><% end %>
                                 </div>
-                                
+
                             </div>
 
                             <div class="comments">
