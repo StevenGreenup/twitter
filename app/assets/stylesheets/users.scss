@@ -151,6 +151,40 @@ body {
                 height: auto;
             }
         }
+        .communication {
+            background-color: white;
+            width: auto;
+            height: auto;
+            border-top: 1px solid #e1e8ed;
+            padding-left: 20px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            align-content: center;
+            align-items: flex-start;
+            .comment {
+                a {
+                    color: #aab8c2;
+                    &:hover {
+                        color: green;
+                        text-decoration: none;
+                    }
+                }
+            }
+            .heart {
+              span{
+              color: #aab8c2;  
+              }
+                padding-left: 10px;
+                a {
+                    color: #aab8c2;
+                    &:hover {
+                        color: red;
+                    }
+                }
+            }
+        }
         hr {
             margin-top: 0;
             margin-bottom: 0;

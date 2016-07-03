@@ -16,6 +16,8 @@ post 'unfollow/:user_id' => 'users#unfollow', as: :unfollow
 
 post "tweets" => "tweets#create"
 get "tweets/new" => "tweets#new", as: :new_tweet
+post "favorite/:id/user/:user_id" => "tweets#favorite", as: :favorite
+post "unfavorite/:id/user/:user_id" => "tweets#unfavorite", as: :unfavorite
 
 
 get "sign_in" => "sessions#new", as: :sign_in
