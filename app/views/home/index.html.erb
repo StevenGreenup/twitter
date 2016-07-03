@@ -79,7 +79,7 @@
                         <div class="tweet-comments">
                                 <% time.comments.each do |comment|  %>
                                 <ul>
-                                    <%= image_tag comment.user.photo_url %>
+                                    <%= image_tag comment.user.photo_url, class: "img-rounded"  %>
                                     <%= comment.user.username %>:
                                     <%= comment.body %>
                                 </ul>
