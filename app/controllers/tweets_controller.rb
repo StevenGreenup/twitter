@@ -23,6 +23,24 @@ class TweetsController < ApplicationController
     end
   end
 
+  def favorite
+    @tweet = Tweet.find_by id: params[:id]
+    @user = User.find_by id: params[:user_id]
+    @tweet.favorites += 1
+    if @tweet.save
+      redirect_to root_path
+    end
+  end
+
+  def unfavorite
+    @tweet = Tweet.find_by id: params[:id]
+    @user = User.find_by id: params[:user_id]
+    @tweet.unfavorites += 1
+    if @tweet.save
+      redirect_to root_path
+    end
+  end
+
   def edit
   end
 

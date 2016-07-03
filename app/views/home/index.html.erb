@@ -57,6 +57,17 @@
                     <%= image_tag time.picture %>
                     <% end %>
                 </div>
+                <div class="communication">
+                  <div class="comment">
+                    <%= link_to 'Comment', root_path%>
+                  </div>
+                  <div class="heart">
+                    <%= link_to favorite_path(id: time.id, user_id: @current_user.id), method: :post do %><i class="glyphicon glyphicon-heart"></i><% end %>
+                    <span><%= time.scorefavorite %></span> 
+                    <%= link_to unfavorite_path(id: time.id, user_id: @current_user.id), method: :post do %><i class="glyphicon glyphicon-thumbs-down"></i><% end %>
+
+                  </div>
+                </div>
             </div>
             <hr>
             <% end %>
