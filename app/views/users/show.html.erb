@@ -1,11 +1,13 @@
 <div class="well">
     <div class="profile">
+
         <%= image_tag @user.photo_url, class:"img-rounded" %>
         <% if @current_user.id == @user.id  %>
-        <%= link_to 'People I Am Following', following_path, class:"btn btn-primary btn-sm" %>
-        <% end %>
         <div class="bottom-follow">
-
+            <div class="case">
+                <%= link_to 'People I Am Following', following_path, class:"btn btn-primary btn-sm" %>
+                <% end %>
+            </div>
             <div class="wrapper">
                 <div class="col-sm-4">
                     Tweets
@@ -90,8 +92,6 @@
                             <% end %>
                         </div>
 
-
-
                         <div class="communication">
                             <div class="wrap">
 
@@ -123,8 +123,6 @@
 
                             </div>
                         </div>
-
-
 
                     </div><br>
                     <% end %>

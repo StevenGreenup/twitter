@@ -20,6 +20,12 @@ body {
         align-content: center;
         align-items: flex-end;
         .bottom-follow {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            align-content: center;
+            align-items: center;
             width: auto;
             height: auto;
             background-color: #ecf0f1;
@@ -63,7 +69,6 @@ body {
                     height: auto;
                 }
             }
-
             .communication {
                 background-color: white;
                 width: auto;
@@ -328,27 +333,23 @@ body {
         }
     }
 }
-
-
-.container{
-  .col-sm-8{
-    .comment-tweet{
-      border: 1px solid #e1e8ed;
-      
-      .tweet-picture{
-        img{
-          width: 300px;
-          height: auto;
-          text-align: center;
+.container {
+    .col-sm-8 {
+        .comment-tweet {
+            border: 1px solid #e1e8ed;
+            .tweet-picture {
+                img {
+                    width: 300px;
+                    height: auto;
+                    text-align: center;
+                }
+            }
+            .tweet-wrap {
+                img {
+                    width: 80px;
+                    height: auto;
+                }
+            }
         }
-        }
-      .tweet-wrap{
-        img{
-          width: 80px;
-          height: auto;
-
-        }
-      }
     }
-  }
 }
