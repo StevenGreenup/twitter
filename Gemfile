@@ -27,6 +27,7 @@ gem 'bootstrap-sass'
 gem 'minitest-rails'
 gem 'bcrypt'
 gem 'acts_as_follower'
+gem 'faker'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
