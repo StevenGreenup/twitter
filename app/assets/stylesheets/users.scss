@@ -191,6 +191,11 @@ body {
         .profile-content {
             padding-top: 65px;
             .picture-and-username {
+                a{
+                  &:hover{
+                    text-decoration: none;
+                  }
+                }
                 img {
                     width: 75px;
                     height: 75px;

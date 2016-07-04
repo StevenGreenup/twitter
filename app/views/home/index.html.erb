@@ -3,10 +3,11 @@
     <div class="col-sm-3">
         <div class="profile-content">
             <div class="picture-and-username">
+                <%= link_to user_path(id: @current_user.id) do %>
+                <%= image_tag @current_user.photo_url, class: "img-rounded"  %> <% end %>
+                <%= link_to user_path(id: @current_user.id) do %>
+                <%= @current_user.username %><% end %>
 
-                <%= image_tag @current_user.photo_url, class: "img-rounded"  %>
-                <%= @current_user.username %>
-                
             </div>
             <div class="follower-stats">
                 <div class="col-sm-4">
