@@ -7,5 +7,5 @@ Tweet.delete_all
 end
 
 100.times do |i|
-  Tweet.create user_id: "#{i+1}", body: "#{Faker::Hipster.paragraph(i+1)}"
+  Tweet.create user_id: "#{i+1}", body: "#{Faker::Hipster.paragraph(1)}"
 end
