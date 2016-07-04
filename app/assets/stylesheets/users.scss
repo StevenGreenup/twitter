@@ -29,11 +29,12 @@ body {
             width: auto;
             height: auto;
             background-color: #ecf0f1;
-            border: 1px solid #e1e8ed;
             .col-sm-4 {
                 text-align: center;
                 padding-left: 10px;
                 padding-right: 10px;
+                border-radius: 5px;
+                border: 1px solid #e1e8ed;
             }
         }
         img {
@@ -219,6 +220,7 @@ body {
             img {
                 width: 300px;
                 height: auto;
+
             }
         }
         .communication {

@@ -33,6 +33,7 @@
         <div class="compose-tweet">
             <%= form_for @tweet do |f| %>
             <%= f.text_field :body, class:"form-control", placeholder:"What's happening?" %>
+            <%= f.text_field :picture, class:"form-control", placeholder:"Paste image location URL here" %>
             <%= f.submit "Tweet", class:"form-control" %>
             <% end %>
         </div>
@@ -54,7 +55,7 @@
                 </div>
                 <div class="body-picture">
                     <% if time.picture.present? %>
-                    <%= image_tag time.picture %>
+                    <%= image_tag time.picture, class: "img-rounded" %>
                     <% end %>
                 </div>
                 <div class="communication">
