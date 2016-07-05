@@ -18,6 +18,10 @@ post "tweets" => "tweets#create"
 get "tweets/new" => "tweets#new", as: :new_tweet
 post "favorite/:id/user/:user_id" => "tweets#favorite", as: :favorite
 post "unfavorite/:id/user/:user_id" => "tweets#unfavorite", as: :unfavorite
+get 'tweets/:id/edit' => 'tweets#edit', as: :edit_tweet
+patch 'tweets/:id' => 'tweets#update', as: :tweet
+delete 'tweets/:id' => 'tweets#destroy', as: :delete
+
 
 post "comments" => "comments#create"
 get "tweet/:tweet_id/user/:user_id/comments/new" => "comments#new", as: :new_comment

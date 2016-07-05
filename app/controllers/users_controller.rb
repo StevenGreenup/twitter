@@ -16,6 +16,7 @@ class UsersController < ApplicationController
     @current_user = User.find_by id: session[:user_id]
     @tweet = Tweet.new
     @users = User.where("id != ?", @current_user.id)
+
   end
 
   def new

@@ -11,6 +11,10 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new
   end
 
+  def show
+    @tweet = Tweet.find_by id: params[:id]
+  end
+
   def create
     @tweet = Tweet.new
     @tweet.body = params[:tweet][:body]
@@ -42,12 +46,26 @@ class TweetsController < ApplicationController
   end
 
   def edit
+  @tweet = Tweet.find_by id: params[:id]
   end
 
-  def update
+def update
+  @tweet = Tweet.find_by id: params[:id]
+  @tweet.body = params[:tweet][:body]
+  @tweet.picture = params[:tweet][:picture]
+  if @tweet.save
+    redirect_to root_path
+  else
+    render :edit
   end
+end
 
-  def delete
-  end
+def destroy
+  Tweet.find(params[:id]).destroy
+  redirect_to root_path
+end
+
+
+
 
 end

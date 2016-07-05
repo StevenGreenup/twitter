@@ -96,6 +96,45 @@ body {
                 justify-content: flex-start;
                 align-content: center;
                 align-items: flex-start;
+                .outer-wrap{
+                  width: 100%;
+                  display: flex;
+                  flex-direction: row;
+                  flex-wrap: nowrap;
+                  justify-content: space-between;
+                  align-content: center;
+                  align-items: flex-start;
+                  .edit-delete{
+                    width: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: nowrap;
+                    justify-content: flex-end;
+                    align-content: center;
+                    align-items: flex-start;
+                    .edit{
+                    a {
+                      background-color: #aab8c2;
+                      border-color: #aab8c2;
+                      &:hover{
+                      background-color: #337ab7;
+                      border-color: #337ab7;
+                      }
+                    }
+                  }
+                  .delete{
+                  a {
+                    background-color: #aab8c2;
+                    border-color: #aab8c2;
+                    &:hover{
+                    background-color: #d9534f;
+                    border-color: #d9534f;
+                    }
+                  }
+                }
+
+                  }
+
                 .wrap {
                     padding-left: 20px;
                     width: 100%;
@@ -127,6 +166,7 @@ body {
                         }
                     }
                 }
+              }
                 .comments {
                     width: 100%;
                     padding: 5px;
@@ -254,15 +294,17 @@ body {
             justify-content: flex-start;
             align-content: center;
             align-items: flex-start;
-            .wrap {
-                padding-left: 20px;
-                width: 100%;
-                display: flex;
-                flex-direction: row;
-                flex-wrap: nowrap;
-                justify-content: flex-start;
-                align-content: center;
-                align-items: flex-start;
+
+            .wrap{
+              padding-left: 20px;
+              width: 100%;
+              display: flex;
+              flex-direction: row;
+              flex-wrap: nowrap;
+              justify-content: flex-start;
+              align-content: center;
+              align-items: center;
+
                 .comment {
                     a {
                         color: #aab8c2;
@@ -284,7 +326,10 @@ body {
                         }
                     }
                 }
-            }
+
+
+          }
+
             .comments {
                 width: 100%;
                 padding: 5px;

@@ -93,7 +93,10 @@
                         </div>
 
                         <div class="communication">
-                            <div class="wrap">
+                          <div class="outer-wrap">
+
+
+                              <div class="wrap">
 
                                 <div class="comment">
                                     <%= link_to 'Comment', new_comment_path(tweet_id: tweet.id, user_id: @current_user.id)%>
@@ -105,8 +108,24 @@
                                     <%= link_to unfavorite_path(id: tweet.id, user_id: @current_user.id), method: :post do %>
                                     <i class="glyphicon glyphicon-thumbs-down"></i><% end %>
                                 </div>
+                                </div>
 
-                            </div>
+                                <div class="edit-delete">
+                                  <div class="edit">
+                                    <% if @current_user.id == @user.id  %>
+                                    <%= link_to 'Edit', edit_tweet_path(id: tweet.id), class:"btn btn-primary btn-xs" %>
+                                    <% end %>
+                                  </div>
+                                  <div class="delete">
+                                  <% if @current_user.id == @user.id  %>
+                                  <%= link_to 'Delete', tweet_path(id: tweet.id), method: 'delete', class:"btn btn-danger btn-xs" %>
+                                  <% end %>
+                                  </div>
+                                </div>
+                                </div>
+
+
+
 
                             <div class="comments">
                                 <% if tweet.comments.present? %>
