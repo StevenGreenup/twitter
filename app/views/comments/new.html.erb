@@ -15,11 +15,8 @@
           <% end %>
       </div>
       </div>
-
-
-        <%= form_for @comment do |f| %>
+        <%= form_for @comment, url: comments_path(tweet_id: @tweet.id, user_id: @current_user.id) do |f| %>
         <%= f.text_area :body, class:"form-control" %>
-        <%= f.text_field :tweet_id, value: @tweet.id, readonly: true %>
         <%= f.submit %>
         <% end %>
     </div>

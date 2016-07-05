@@ -23,8 +23,8 @@ patch 'tweets/:id' => 'tweets#update', as: :tweet
 delete 'tweets/:id' => 'tweets#destroy', as: :delete
 
 
-post "comments" => "comments#create"
-get "tweet/:tweet_id/user/:user_id/comments/new" => "comments#new", as: :new_comment
+post "tweet/:tweet_id/comments" => "comments#create", as: :comments
+get "tweet/:tweet_id/comments/new" => "comments#new", as: :new_comment
 
 
 get "sign_in" => "sessions#new", as: :sign_in

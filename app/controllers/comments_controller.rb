@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new
-    @comment.tweet_id = params[:comment][:tweet_id]
+    @comment.tweet_id = params[:tweet_id]
     @comment.body = params[:comment][:body]
     @comment.user = @current_user
     if @comment.save
